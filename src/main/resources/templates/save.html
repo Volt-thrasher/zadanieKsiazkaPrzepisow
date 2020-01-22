@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodawanie przepisu</title>
+</head>
+<body>
+<header>
+    <div th:fragment="header2">
+        <h1 th:text="|Nowy przepis|"></h1>
+    </div>
+</header>
+<div class="form">
+    <form method="post" th:action="@{/add}" th:object="${recipe}">
+        Nazwa : <input type="text" name="name" th:field="*{title}"><br/>
+        Opis : <textarea name="description" th:field="*{description}"></textarea><br/>
+        Kategoria : <select name="category" th:field="*{category}">
+        <option th:each="category:${categories}" th:valuetype="category" th:value="${category}"
+                th:text="${category.name.name}"></option>
+    </select>
+        <input type="submit" value="Dodaj">
+    </form>
+</div>
+
+</body>
+</html>
