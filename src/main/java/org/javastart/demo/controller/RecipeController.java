@@ -9,7 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.ArrayList;
 
 @Controller
 public class RecipeController {
@@ -53,5 +56,21 @@ public class RecipeController {
         return "save";
     }
 
+    @GetMapping("/recipes")
+    public String allRecipes(Model model) {
+        model.addAttribute("recipes", new ArrayList<>(recipeRepository.findAll()));
+        return "recipes";
+    }
 
+    @GetMapping("/recipes/{id}")
+    public String getRecipe(@PathVariable(name = "id") long id, Model model) {
+        model.addAttribute("recipe", recipeRepository.getOne(id));
+        return "recipe";
+    }
+
+//    @GetMapping("/{category}")
+//    public String getCategories(@PathVariable(name = "category") Category category, Model model) {
+//        model.addAttribute("recipe", new Recipe());
+//        return "category";
+//    }
 }

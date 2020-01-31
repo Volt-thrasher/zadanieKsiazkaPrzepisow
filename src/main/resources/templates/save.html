@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap-grid.css" rel="stylesheet">
+    <link href="/css/bootstrap-reboot.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Dodawanie przepisu</title>
 </head>
@@ -13,9 +16,10 @@
 <div class="form">
     <form method="post" th:action="@{/add}" th:object="${recipe}">
         Nazwa : <input type="text" name="name" th:field="*{title}"><br/>
+        URL : <input type="text" name="url" th:field="*{url}"><br/>
         Opis : <textarea name="description" th:field="*{description}"></textarea><br/>
         Kategoria : <select name="category" th:field="*{category}">
-        <option th:each="category:${categories}" th:valuetype="category" th:value="${category}"
+        <option th:each="category:${categories}" th:value="${recipe.category}"
                 th:text="${category.name.name}"></option>
     </select>
         <input type="submit" value="Dodaj">

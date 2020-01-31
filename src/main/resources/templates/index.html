@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
+    <link href="/css/styles.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Ze smakiem!</title>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap-grid.css" rel="stylesheet">
+    <link href="/css/bootstrap-reboot.css" rel="stylesheet">
 </head>
 <body>
 <header>
     <div th:fragment="header1">
-        <h1 th:text="|Ze smakiem!|"></h1>
+        <h1 th:text="|Dobre przepisy|"></h1>
+    </div>
+    <div style="overflow: hidden">
+        <div style="float: left" class="link">
+            <a>
+                <h3 th:href="@{/desert}" th:text="|Desery|"></h3>
+            </a>
+        </div>
+        <div style="float: left" class="link">
+            <a>
+                <h3 th:href="@{/first}" th:text="|Dania pierwsze|"></h3>
+            </a>
+        </div>
+        <div style="float: left" class="link">
+            <h3 th:href="@{/second}" th:text="|Dania drugie|"></h3>
+        </div>
+        <div style="float: left" class="link">
+            <h3 th:href="@{/main}" th:text="|Dania glowne|"></h3>
+        </div>
+        <div style="float: left" class="link">
+            <h3 th:href="@{/salads}" th:text="|Salaty i surowki|"></h3>
+        </div>
+        <div style="float: left" class="link">
+            <h3 th:href="@{/drinks}" th:text="|Napoje|"></h3>
+        </div>
     </div>
 </header>
 </body>

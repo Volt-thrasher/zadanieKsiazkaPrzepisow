@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap-grid.css" rel="stylesheet">
+    <link href="/css/bootstrap-reboot.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Lista przepisow</title>
+</head>
+<body>
+<h1 th:text="${recipe.title}"></h1>
+<h3 th:text="${recipe.description}"></h3>
+<p th:src="${recipe.url}" style="height: 200px; width: 250px" class="img"></p>
+</body>
+</html>
